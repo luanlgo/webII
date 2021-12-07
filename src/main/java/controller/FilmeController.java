@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +28,21 @@ public class FilmeController {
 		return filme == null ? null : filme;
 	}
 
+	@GetMapping("/all")
+	public List<Filme> getFilmes() {
+		return filmeDAO.getAll();
+	}
+
+	@GetMapping("/byDiretor/{diretor}")
+	public List<Filme> getFilmesByDiretor(@PathVariable String diretor) {
+		return filmeDAO.getByDiretor(diretor);
+	}
+
+	@GetMapping("/byAno/{ano}")
+	public List<Filme> getFilmesByAno(@PathVariable int ano) {
+		return filmeDAO.getByAno(ano);
+	}
+
     @PostMapping("/add")
     public Filme addFilme(@RequestBody Filme filme) {
 		return filmeDAO.insert(filme);	
@@ -33,7 +50,7 @@ public class FilmeController {
 
     @PutMapping("/update/{id}")
 	public void updateFilme(@RequestBody Filme filme, @PathVariable int id) {		
-		filmeDAO.update(filme, id);
+		filmeDAO.update(filme);
 	}
 	
 	@DeleteMapping("/delete/{id}")
