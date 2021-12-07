@@ -13,30 +13,74 @@ import javax.persistence.UniqueConstraint;
 import javax.persistence.GenerationType;
 
 @Entity
-@Table(name = "Filme", //
-        uniqueConstraints = { //
-            @UniqueConstraint(name = "FILME_UK", columnNames = "Nome") })
+@Table(name = "Filme")
 public class Filme {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id", nullable = false)
+    @Column(name = "id")
     private int id;
 
-    @Column(name = "Nome", nullable = false)
+    @Column(name = "Nome")
     private String nome;
 
-    @Column(name = "Ano", nullable = false)
+    @Column(name = "Ano")
     private int ano;
 
-    @Column(name = "Genero", nullable = false)
+    @Column(name = "Genero")
     private String genero;
 
-    @Column(name = "Diretor", nullable = false)
+    @Column(name = "Diretor")
     private String diretor;
 
     @Transient
     private List<Object> locadoras = new ArrayList<>();
 
-    // getters e setters:
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getAno() {
+        return this.ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public String getGenero() {
+        return this.genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getDiretor() {
+        return this.diretor;
+    }
+
+    public void setDiretor(String diretor) {
+        this.diretor = diretor;
+    }
+
+    public List<Object> getLocadoras() {
+        return this.locadoras;
+    }
+
+    public void setLocadoras(List<Object> locadoras) {
+        this.locadoras = locadoras;
+    } 
 }

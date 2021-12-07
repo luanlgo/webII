@@ -35,5 +35,43 @@ public class Locadora {
     @Transient
     private List<Object> filmes = new ArrayList<>();
 
-    // getters e setters:
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCidade() {
+        return this.cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public float getPrecoAluguel() {
+        return this.precoAluguel;
+    }
+
+    public void setPrecoAlguel(float precoAluguel) {
+        this.precoAluguel = precoAluguel;
+    }
+
+    public List<Object> getFilmes() {
+        return this.filmes;
+    }
+
+    public void setFilmes(List<Object> filmes) {
+        this.filmes = filmes;
+    }
 }
